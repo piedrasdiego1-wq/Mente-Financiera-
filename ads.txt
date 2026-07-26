@@ -1,0 +1,8 @@
+# ads.txt
+# IMPORTANTE: Este archivo es un PLACEHOLDER.
+# Reemplaza "pub-0000000000000000" por tu ID de editor real de AdSense
+# una vez que crees tu cuenta (lo encuentras en AdSense > Cuenta > Información de la cuenta).
+#
+# Formato: google.com, <ID-de-editor>, DIRECT, f08c47fec0942fa0
+#
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

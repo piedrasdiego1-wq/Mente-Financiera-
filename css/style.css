@@ -1,0 +1,467 @@
+/* Mente Financiera — hoja de estilos principal */
+
+:root {
+  --color-primary: #0b3d2e;
+  --color-primary-light: #145c45;
+  --color-accent: #d9a441;
+  --color-bg: #fbfaf7;
+  --color-bg-alt: #f0ede6;
+  --color-text: #1f2623;
+  --color-text-light: #52605a;
+  --color-border: #e0ddd3;
+  --max-width: 960px;
+  --radius: 10px;
+  --font-body: "Segoe UI", Verdana, Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  background: var(--color-primary);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff !important;
+  text-decoration: none !important;
+  letter-spacing: 0.5px;
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #f2f0ea !important;
+  font-weight: 500;
+  font-size: 0.97rem;
+}
+
+.main-nav a:hover {
+  color: var(--color-accent) !important;
+}
+
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: block;
+  }
+  .main-nav {
+    display: none;
+    width: 100%;
+  }
+  .main-nav.open {
+    display: block;
+  }
+  .site-header .container {
+    flex-wrap: wrap;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 0 18px;
+  }
+  .main-nav a {
+    display: block;
+    padding: 10px 4px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: #fff;
+  padding: 56px 0 64px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  margin: 0 0 14px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #e7f0eb;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Main content */
+main {
+  padding: 48px 0 64px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-accent);
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* Article cards grid (homepage) */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.article-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.article-card .tag {
+  display: inline-block;
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.article-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.article-card h3 a {
+  color: var(--color-text) !important;
+  text-decoration: none !important;
+}
+
+.article-card h3 a:hover {
+  color: var(--color-primary-light) !important;
+}
+
+.article-card p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.read-more {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Article page */
+.article-header {
+  background: var(--color-bg-alt);
+  padding: 40px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.article-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.article-meta {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 0;
+}
+
+.article-body h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  margin-top: 40px;
+}
+
+.article-body h3 {
+  color: var(--color-primary-light);
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+.article-body p {
+  margin-bottom: 18px;
+}
+
+.article-body ul, .article-body ol {
+  margin-bottom: 18px;
+  padding-left: 24px;
+}
+
+.article-body li {
+  margin-bottom: 8px;
+}
+
+.callout {
+  background: #fff6e6;
+  border-left: 4px solid var(--color-accent);
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin: 24px 0;
+  font-size: 0.97rem;
+}
+
+.callout strong {
+  color: var(--color-primary);
+}
+
+table.finance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.92rem;
+}
+
+table.finance-table th, table.finance-table td {
+  border: 1px solid var(--color-border);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+table.finance-table th {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.related-articles {
+  max-width: 720px;
+  margin: 40px auto 0;
+  padding: 24px 20px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.related-articles h2 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+.related-articles ul {
+  padding-left: 20px;
+}
+
+/* Ad slot placeholders */
+.ad-slot {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  background: var(--color-bg-alt);
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+}
+
+/* Simple pages (legal, about) */
+.simple-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.simple-page h1 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.simple-page h2 {
+  color: var(--color-primary-light);
+  margin-top: 32px;
+}
+
+/* Footer */
+.site-footer {
+  background: #10241b;
+  color: #cdd8d1;
+  padding: 40px 0 24px;
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.footer-col h4 {
+  color: #fff;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #cdd8d1;
+}
+
+.footer-col a:hover {
+  color: var(--color-accent);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 18px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #93a39a;
+}
+
+/* Cookie banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #10241b;
+  color: #f2f0ea;
+  padding: 16px 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  z-index: 200;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+}
+
+.cookie-banner.visible {
+  display: flex;
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.9rem;
+  max-width: 560px;
+}
+
+.cookie-banner a {
+  color: var(--color-accent);
+}
+
+.btn {
+  background: var(--color-accent);
+  color: #241a05;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background: #c79430;
+}
